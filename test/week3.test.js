@@ -11,11 +11,11 @@ describe("camelCaseWords", () => {
     expect(camelCaseWords(["my"])).toBe("my");
   });
 
-  test("camel cases two words (i.e. second word is capitalized)", () => {
+  test.only("camel cases two words (i.e. second word is capitalized)", () => {
     expect(camelCaseWords(["my", "variable"])).toBe("myVariable");
   });
 
-  test("camel cases two+ words (i.e. all words after 1st are capitalized)", () => {
+  test.only("camel cases two+ words (i.e. all words after 1st are capitalized)", () => {
     expect(camelCaseWords(["my", "variable"])).toBe("myVariable");
     expect(camelCaseWords(["my", "variable", "name"])).toBe("myVariableName");
     expect(camelCaseWords(["is", "unique"])).toBe("isUnique");

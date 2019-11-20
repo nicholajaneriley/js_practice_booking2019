@@ -5,7 +5,11 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+  // first word is uncapitalised, subsequent words are capitalised and there are no spaces between
+  let newArrCamel= words.map(item=> item.charAt(0).toUpperCase() + item.substr(1).toLowerCase())
+  let allCaps = newArrCamel.join("");
+  let camelCase = allCaps.charAt(0).toLowerCase() + allCaps.substring(1);
+  return camelCase;
 }
 
 function getTotalSubjects(people) {
