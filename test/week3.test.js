@@ -74,7 +74,7 @@ describe("getTotalSubjects", () => {
 });
 
 describe("checkIngredients", () => {
-  test.only("returns false if no menu items include the specified ingredient", () => {
+  test("returns false if no menu items include the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",
@@ -103,7 +103,7 @@ describe("checkIngredients", () => {
     expect(checkIngredients(menu, "milk")).toBe(false);
   });
 
-  test.only("returns true if a menu item includes the specified ingredient", () => {
+  test("returns true if a menu item includes the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",
