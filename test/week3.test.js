@@ -26,11 +26,11 @@ describe("camelCaseWords", () => {
 });
 
 describe("getSquares", () => {
-  test.only("returns an empty array if empty array passed", () => {
+  test("returns an empty array if empty array passed", () => {
     expect(getSquares([])).toEqual([]);
   });
 
-  test.only("returns an array of squares of the original numbers", () => {
+  test("returns an array of squares of the original numbers", () => {
     expect(getSquares([2, 4, 6])).toEqual([4, 16, 36]);
     expect(getSquares([2, 4, 6, 1])).toEqual([4, 16, 36, 1]);
     expect(getSquares([2, 3, 6, 7, 12, 4])).toEqual([4, 9, 36, 49, 144, 16]);
@@ -74,7 +74,7 @@ describe("getTotalSubjects", () => {
 });
 
 describe("checkIngredients", () => {
-  test("returns false if no menu items include the specified ingredient", () => {
+  test.only("returns false if no menu items include the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",
@@ -103,7 +103,7 @@ describe("checkIngredients", () => {
     expect(checkIngredients(menu, "milk")).toBe(false);
   });
 
-  test("returns true if a menu item includes the specified ingredient", () => {
+  test.only("returns true if a menu item includes the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",

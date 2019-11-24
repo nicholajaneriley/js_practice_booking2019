@@ -15,13 +15,22 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+  let totalSubj = 0;
+  people.forEach(person => {
+    totalSubj += person.subjects.length;
+  })
+  return totalSubj;
 }
 
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  return menu.filter(plateOfFood => {
+    if(plateOfFood.ingredients.includes(ingredient)){
+      return true;
+    }
+    return false;
+  }).length > 0;
 }
 
 function duplicateNumbers(arr1, arr2) {
