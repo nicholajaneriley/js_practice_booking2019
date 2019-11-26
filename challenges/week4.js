@@ -44,14 +44,21 @@ function getIntegers(nums) {
   });
 }
 
+//come back to this one
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  // returns an array of the cities of each user
+  users.forEach(user =>{
+    return user.data.city.displayName;
+  });
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  // gets the square root of each number to 2 decimal places
+  return nums.map(squares =>{
+    return Math.round((Math.sqrt(squares)) *100) /100;
+  });
 }
 
 function findSentencesContaining(sentences, str) {
