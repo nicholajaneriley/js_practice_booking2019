@@ -64,7 +64,14 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  // returns only the sentences containing the specified string
+  //it should not be case sensitive
+  return sentences.filter(specifiedString => {
+    if(specifiedString.toLowerCase().includes(str.toLowerCase())){
+      return specifiedString;
+    }
+    return false;
+  });
 }
 
 function getLongestSides(triangles) {
