@@ -23,12 +23,25 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
+  // returns an array of words that are considered verbs (because they begin with 'to '
+  //does not mistake words that include 'to' elsewhere"
+  return words.filter(verbs => {
+    if(verbs.includes("to ")){
+      return verbs;
+    }
+    return false;
+  });
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  // returns an array containing only integers
+  return nums.filter(integers => {
+    if(integers % 1 === 0){
+      return integers;
+    }
+    return false;
+  });
 }
 
 function getCities(users) {

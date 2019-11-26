@@ -19,7 +19,7 @@ describe("findSmallNums", () => {
 });
 
 describe("findNamesBeginningWith", () => {
-  test.only("returns an array of names beginning with the specified character", () => {
+  test("returns an array of names beginning with the specified character", () => {
     const names = ["Sally", "Dave", "Susan", "Geoff", "Riley", "Sam"];
     expect(findNamesBeginningWith(names, "S")).toEqual([
       "Sally",
@@ -59,7 +59,7 @@ describe("findVerbs", () => {
 });
 
 describe("getIntegers", () => {
-  test("returns an array containing only integers", () => {
+  test.only("returns an array containing only integers", () => {
     const nums = [1, 3.5, 2.1, 1, 4, 9];
     expect(getIntegers(nums)).toEqual([1, 1, 4, 9]);
     expect(getIntegers([])).toEqual([]);
