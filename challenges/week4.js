@@ -74,12 +74,9 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // returns the longest side of each set of triangle data
-  const maxArray = [];
-  triangles.forEach(triangle =>{
-    let maxSide = Math.max.apply(null, triangle);
-    maxArray.push(maxSide);
-  }); return maxArray;
+  return triangles.map(triangle =>{
+    return Math.max.apply(null, triangle);
+  });
 }
 
 module.exports = {
