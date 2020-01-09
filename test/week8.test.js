@@ -29,7 +29,7 @@ describe("findNextNumber", () => {
 });
 
 describe("count1sand0s", () => {
-  test.only("returns an object with the count of 1s and 0s in a string", () => {
+  test("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
       0: 3
@@ -62,7 +62,7 @@ describe("reverseNumber", () => {
 });
 
 describe("sumArrays", () => {
-  test("returns the total of the numbers in all sub arrays", () => {
+  test.only("returns the total of the numbers in all sub arrays", () => {
     const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
     expect(sumArrays(arrs)).toBe(44);
   });
