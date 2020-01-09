@@ -1,22 +1,37 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  // find n in nums
+  //return first instance of n at i+1 assuming i+1 exists
+  //else return null
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  // count instance of 1 and return
+  // count instances of 0 and return
+  let arr = str.split("");
+  return arr.filter(
+    function (ones) {
+      return ones === "1";
+    }
+  ).length;
 };
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  let newNumber = n;
+  var splitString = newNumber.toString().split("");
+  var reverseArray = splitString.reverse();
+  var joinArray = reverseArray.join("");
+  return parseInt(joinArray);
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  return arrs.map(arr =>{
+    return arr.reduce();
+  });
 };
 
 const arrShift = arr => {
