@@ -13,14 +13,17 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // count instance of 1 and return
-  // count instances of 0 and return
-  let arr = str.split("");
-  return arr.filter(
-    function (ones) {
-      return ones === "1";
-    }
-  ).length;
+  function countNums (array, num){
+    return array.filter(nums => {
+      if(nums === num){
+        return true;
+      }
+      return false;
+    }).length;
+  }
+  let newStr = str;
+  var splitString = newStr.split("");
+  return { 0 : countNums(splitString, "0"), 1: countNums(splitString, "1")};
 };
 
 const reverseNumber = n => {

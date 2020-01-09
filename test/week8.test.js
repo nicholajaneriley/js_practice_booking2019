@@ -29,7 +29,7 @@ describe("findNextNumber", () => {
 });
 
 describe("count1sand0s", () => {
-  test("returns an object with the count of 1s and 0s in a string", () => {
+  test.only("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
       0: 3
