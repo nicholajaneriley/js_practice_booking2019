@@ -4,6 +4,11 @@ const findNextNumber = (nums, n) => {
   // find n in nums
   //return first instance of n at i+1 assuming i+1 exists
   //else return null
+  let index = nums.indexOf(n);
+  if (index >= 0 && index < nums.length - 1){
+  let nextItem = nums[index + 1];
+  return nextItem;
+  } return null;
 };
 
 const count1sand0s = str => {
@@ -29,8 +34,9 @@ const reverseNumber = n => {
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  return arrs.map(arr =>{
-    return arr.reduce();
+  return arrs.map(arr => {
+    const sum = arr.reduce((total, amount) => total + amount);
+    return sum.reduce((x, y) => x + y);
   });
 };
 
