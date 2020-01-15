@@ -1,16 +1,11 @@
-/**
- * This function will receive an array of numbers and should return the sum
- * of any numbers which are a multiple of 3 or 5
- * @param {Array} arr
- * @returns {Number}
- */
 
  const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
   return arr.filter(nums => {
     if (nums %3 === 0 || nums %5 === 0){
      return true;
-    } return false;
+    } 
+    return false;
   }).reduce((total, amount) => total + amount, 0);
 };
 
@@ -18,12 +13,13 @@ const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   if (str.match(/^[CGTA]/g)) {
     return true;
-  } return false;
+  } 
+  return false;
 };
 
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  if (str.match(/^[CGTA]/g)) {
+  if (isValidDNA(str)) {
     const complementary = str.split("");
     return complementary.map(letter => {
       switch(letter) {
@@ -37,7 +33,8 @@ const getComplementaryDNA = str => {
           return "C";
       }
     }).join("");
-  } return false;
+  } 
+  return false;
 };
 
 
@@ -49,6 +46,16 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  if (n < 2) return false;
+  var q = Math.floor(Math.sqrt(n));
+  for (var i = 2; i <= q; i++)
+  {
+      if (n % i === 0)
+      {
+          return false;
+      }
+  }
+  return true;
 };
 
 /**

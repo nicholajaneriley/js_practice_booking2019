@@ -2,7 +2,7 @@ const {
     sumMultiples,
     isValidDNA,
     getComplementaryDNA,
-    //isItPrime,
+    isItPrime,
     //createMatrix,
     //areWeCovered
 } = require("../challenges/week9");
@@ -29,3 +29,12 @@ describe("getComplementaryDNA", () => {
         expect(getComplementaryDNA("BCGTA")).toBe(false);
     });
 });
+
+describe("isItPrime", () => {
+    test("returns true if number is prime (only divide by itself or 1)", () => {
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(8)).toBe(false);
+        expect(isItPrime(587)).toBe(true);
+    });
+});
+
