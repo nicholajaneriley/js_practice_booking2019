@@ -4,27 +4,43 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr => {
+
+ const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  return arr.filter(nums => {
+    if (nums %3 === 0 || nums %5 === 0){
+     return true;
+    } return false;
+  }).reduce((total, amount) => total + amount, 0);
 };
 
-/**
- * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
- * @param {String} str
- * @returns {Boolean}
- */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (str.match(/^[CGTA]/g)) {
+    return true;
+  } return false;
 };
 
-/**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
- * @param {String} str
- * @returns {String}
- */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (str.match(/^[CGTA]/g)) {
+    const complementary = str.split("");
+    return complementary.map(letter => {
+      switch(letter) {
+        case "T":
+          return "A";
+        case "A":
+          return "T";
+        case "C":
+          return "G";
+        case "G":
+          return "C";
+      }
+    }).join("");
+  } return false;
 };
+
+
 
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
