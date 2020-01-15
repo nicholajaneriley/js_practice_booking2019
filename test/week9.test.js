@@ -3,7 +3,7 @@ const {
     isValidDNA,
     getComplementaryDNA,
     isItPrime,
-    //createMatrix,
+    createMatrix,
     //areWeCovered
 } = require("../challenges/week9");
 
@@ -38,3 +38,9 @@ describe("isItPrime", () => {
     });
 });
 
+describe("createMatrix", () => {
+    test("returns n arrays with n instances of fill", () => {
+      expect(createMatrix(3, "foo")).toEqual([["foo", "foo", "foo"], ["foo", "foo", "foo"], ["foo", "foo", "foo"]]);
+      expect(createMatrix(0, "")).toEqual([]);
+    });
+});
