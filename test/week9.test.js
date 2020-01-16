@@ -4,7 +4,7 @@ const {
     getComplementaryDNA,
     isItPrime,
     createMatrix,
-    //areWeCovered
+    areWeCovered
 } = require("../challenges/week9");
 
 
@@ -40,7 +40,21 @@ describe("isItPrime", () => {
 
 describe("createMatrix", () => {
     test("returns n arrays with n instances of fill", () => {
-      expect(createMatrix(3, "foo")).toEqual([["foo", "foo", "foo"], ["foo", "foo", "foo"], ["foo", "foo", "foo"]]);
-      expect(createMatrix(0, "")).toEqual([]);
+        expect(createMatrix(3, "foo")).toEqual([["foo", "foo", "foo"], ["foo", "foo", "foo"], ["foo", "foo", "foo"]]);
+        expect(createMatrix(0, "")).toEqual([]);
+    });
+});
+
+describe("areWeCovered", () => {
+
+    test("returns true if three staff members are scheduled for a certain day", () => {
+        const staff = [
+            { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+            { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+            { name: "Maureen", rota: ["Saturday", "Sunday", "Tuesday", "Thursday"] },
+        ];
+
+        expect(areWeCovered(staff, "Tuesday")).toBe(true);
+        expect(areWeCovered(staff, "Monday")).toBe(false);
     });
 });
