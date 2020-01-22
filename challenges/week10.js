@@ -1,57 +1,60 @@
-/**
- * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
- * @param {Number} n
- */
+
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  //split number into an array
+  //add each number in the array
+  //return number
+  const sum = Array.from(n.toString()).map(Number);
+  return sum.reduce((total, amount) => total + amount, 0);
 };
 
-/**
- * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
- * Both the start and the end numbers are inclusive.
- * Step is an optional parameter. If it is not provided, assume the step is 1.
- * @param {Number} start
- * @param {Number} end
- * @param {Number} step
- */
+
+
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  const numArray = [];
+  var gap = 0;
+
+  if (step != null) {
+    gap = step;
+  } else {
+    gap = 1;
+  }
+
+  for (let endNumber = start; endNumber < end; endNumber = endNumber + gap) {
+    numArray.push(endNumber);
+  }
+  numArray.push(end);
+  return numArray;
 };
 
-/**
- * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
- * [
- *  {
- *    username: "beth_1234",
- *    name: "Beth Smith",
- *    screenTime: [
- *                 { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40} },
- *                 { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31} },
- *                 { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19} },
- *                 { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61} },
- *                ]
- *   },
- *   {
- *    username: "sam_j_1989",
- *    name: "Sam Jones",
- *    screenTime: [
- *                 { date: "2019-06-11", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 10} },
- *                 { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
- *                 { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31} },
- *                ]
- *   },
- * ]
- *
- * The function should return an array of usernames of users who have used more than 100 minutes of screentime for a given date.
- * The date will be provided in the format "2019-05-04" (YYYY-MM-DD)
- * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
- * @param {Array} users
- */
+
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  // go through the users array and filter for the date
+  // does the date entered match the array? If not, do nothing
+  // for each user, add up the number of mins in each usage object
+  // if the number of mins exceeds 100 then add username to an array & return
+const userAlert = [];
+
+  users.forEach(person => {
+
+    let screenTimeDay = person.screenTime.filter(usageDay => date === usageDay.date);
+
+    if (screenTimeDay.length > 0) {
+
+    const screenMinutes = Object.values(screenTimeDay[0].usage).reduce((total, amount) => total + amount, 0);
+
+    if (screenMinutes > 100) {
+      userAlert.push(person.username);
+    }
+  }
+  });
+  return userAlert;
 };
+
 
 /**
  * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
@@ -66,6 +69,9 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
 };
+
+
+
 
 /**
  * This function takes a noughts and crosses board represented as an array, where an empty space is represented with null.
