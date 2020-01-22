@@ -54,3 +54,10 @@ describe("getScreentimeAlertList", () => {
         expect(getScreentimeAlertList(users, "2020-05-03")).toEqual([]);
     });
 });
+
+describe("hexToRGB", () => {
+    test("returns the RGB equivalent of a colour expressed in hexidecimal", () => {
+        expect(hexToRGB("#FF1133")).toEqual("rgb(255, 17, 51)");
+       // expect(sumDigits(123456)).toEqual(21);
+    });
+});
