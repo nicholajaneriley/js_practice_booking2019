@@ -3,7 +3,7 @@ const {
     createRange,
     getScreentimeAlertList,
     hexToRGB,
-    //findWinner
+    findWinner
 } = require("../challenges/week10");
 
 describe("sumDigits", () => {
@@ -19,7 +19,7 @@ describe("createRange", () => {
         expect(createRange(3, 11, 2)).toEqual([3, 5, 7, 9, 11]);
         expect(createRange(3, 11, 3)).toEqual([3, 6, 9, 11]);
         expect(createRange(3, 11)).toEqual([3, 4, 5, 6, 7, 8, 9, 10, 11]);
-        
+
     });
 });
 
@@ -58,6 +58,39 @@ describe("getScreentimeAlertList", () => {
 describe("hexToRGB", () => {
     test("returns the RGB equivalent of a colour expressed in hexidecimal", () => {
         expect(hexToRGB("#FF1133")).toEqual("rgb(255, 17, 51)");
-       // expect(sumDigits(123456)).toEqual(21);
     });
+});
+
+describe("findWinner", () => {
+
+    test("returns X if X wins, 0 if 0 wins and null if no one wins a game of noughts and crosses entered as an array - this returns X", () => {
+        const board = [
+            ["X", "0", null],
+            ["X", null, "0"],
+            ["X", null, "0"]
+        ]
+
+        expect(findWinner(board)).toEqual("X");
+    });
+
+    test("returns X if X wins, 0 if 0 wins and null if no one wins a game of noughts and crosses entered as an array - this returns 0", () => {
+        const board = [
+            ["X", "0", null],
+            ["0", "0", "0"],
+            ["X", null, "0"]
+        ]
+
+        expect(findWinner(board)).toEqual("0");
+    });
+
+    test("returns X if X wins, 0 if 0 wins and null if no one wins a game of noughts and crosses entered as an array - this returns null", () => {
+        const board = [
+            ["X", "0", null],
+            ["0", null, "0"],
+            ["X", null, "0"]
+        ]
+
+        expect(findWinner(board)).toEqual(null);
+    });
+
 });
